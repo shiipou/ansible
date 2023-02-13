@@ -5,11 +5,11 @@ k8s-worker-01.local
 k8s-worker-02.local
 
 [loadbalancers]
-k8s-loadbalancer-01 ansible_host=k8s-loadbalancer-01.local ansible_user=ansible
+k8s-loadbalancer-01 ansible_host=k8s-loadbalancer-01.local ansible_user=ansible ansible_architecture=arm64
 
 [leaders]
-k8s-leader-01 ansible_host=k8s-leader-01.local ansible_user=ansible
+k8s-leader-01 ansible_host=k8s-leader-01.local ansible_user=ansible ansible_architecture=arm64
 
 [workers]
-k8s-worker-01 ansible_host=k8s-worker-01.local ansible_user=ansible
-k8s-worker-02 ansible_host=k8s-worker-02.local ansible_user=ansible
+k8s-worker-01 ansible_host=k8s-worker-01.local ansible_user=ansible ansible_architecture=amd64
+k8s-worker-02 ansible_host=k8s-worker-02.local ansible_user=ansible ansible_architecture=amd64

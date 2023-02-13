@@ -8,6 +8,7 @@
   connection: ssh
 
   tasks:
+
     - name: Make the Swap inactive
       command: swapoff -a
 
@@ -64,9 +65,13 @@
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
 
+    - name: Get DEB architecture
+      shell: dpkg --print-architecture
+      register: deb_architecture
+
     - name: Add Docker Repository
       apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+        repo: deb [arch={{ deb_architecture.stdout }}] https://download.docker.com/linux/ubuntu xenial stable
         state: present
         filename: docker
         update_cache: yes
